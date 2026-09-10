@@ -86,7 +86,8 @@ validation, but no forecast origin targets them.
 | `boc_rate_decision_direction` | `BoCDecisionEventAdapter(kind="direction")` | Joins calendar + daily rate into −1/0/+1; robust to the 2021 effective-date regime change |
 | `boc_rate_cut_event` | `BoCDecisionEventAdapter(kind="cut")` | The binary view of the same derivation |
 | 2-year GoC benchmark yield | StatCan 10-10-0139-01 | Market-implied policy expectations — the strongest single covariate, and naturally directional |
-| CPI all-items | StatCan 18-10-0004-11 | The Bank targets 2% CPI inflation |
+| US Treasury 2-year yield | FRED DGS2 | Combined with the GoC 2-year yield to form the Fed-BoC 2Y differential |
+| CPI-median and CPI-trim | StatCan 18-10-0256-01 | Bank of Canada core measures of persistent inflation relative to the 2% target |
 | Unemployment rate | FRED `LRUNTTTTCAM156S` | Labour-market pressure |
 | BoC rate-announcement press releases | Bank of Canada announcement pages (`scripts/fetch_boc_press_releases.py`) | One release per scheduled meeting, cached to `data/reports/boc_press_releases/`; served cutoff-aware by `PressReleaseStore` (only releases published on or before the origin are visible). Currently the published-rationale source for the reasoning-alignment evaluator; available as a context seam for the LLMP/agent predictors |
 
@@ -113,6 +114,10 @@ reference month of any monthly covariate — see
 `predictors/logistic_baseline.py::build_feature_row`, which both the
 logistic model and the agent prompt builder share. Notebook 01 demonstrates
 the full chain at a real origin.
+
+The preferred conventional specification uses separate CPI-median and CPI-trim
+gaps, alongside the Fed-BoC 2-year spread, rate momentum, yield spread, and
+unemployment momentum.
 
 **Maintenance:** extend `meeting_schedule.yaml` each year when the Bank
 publishes its next calendar (provenance notes are in the file header), and

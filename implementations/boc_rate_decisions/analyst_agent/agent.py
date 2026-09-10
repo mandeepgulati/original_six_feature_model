@@ -58,9 +58,11 @@ from aieng.forecasting.methods.agentic.agent_factory import (
 from aieng.forecasting.models import LITE_MODEL
 from boc_rate_decisions.data import (
     BOND_YIELD_2YR_SERIES_ID,
-    CPI_SERIES_ID,
+    CPI_MEDIAN_SERIES_ID,
+    CPI_TRIM_SERIES_ID,
     TARGET_RATE_SERIES_ID,
     UNEMPLOYMENT_SERIES_ID,
+    US_BOND_YIELD_2YR_SERIES_ID,
 )
 from boc_rate_decisions.predictors.logistic_baseline import build_feature_row
 from pydantic import BaseModel
@@ -89,7 +91,7 @@ def _build_boc_analyst_instruction() -> str:
         "for the overnight rate at a specific upcoming fixed announcement date — "
         "CUT (lower), HOLD (unchanged), or HIKE (raise) — grounded in the "
         "policy-rate path, the Bank's 2% CPI inflation target, labour-market and "
-        "bond-market conditions, and the Bank's institutional behaviour "
+        "bond-market conditions, the Fed-BoC 2-year yield differential, and the Bank's institutional behaviour "
         "(gradualism, data dependence, reluctance to surprise markets).\n\n"
         "## Forecasting contract\n\n"
         "You will receive a JSON payload containing:\n"
@@ -101,9 +103,9 @@ def _build_boc_analyst_instruction() -> str:
         "changes\n"
         "- `meeting_outcomes`: per-meeting decision history (cut / hold / hike) "
         "with the realised base rates for each outcome\n"
-        "- `macro_snapshot`: leak-safe indicators as of the origin (CPI inflation "
+        "- `macro_snapshot`: leak-safe indicators as of the origin (core inflation "
         "vs the 2% target, unemployment momentum, 2-year GoC yield vs the policy "
-        "rate)\n\n"
+        "rate, and the US-vs-Canada 2-year yield spread)\n\n"
         "Rules:\n"
         "1. Assign one probability to each of `cut`, `hold`, and `hike` — a move "
         "of any size counts. The three probabilities must sum to 1.\n"
@@ -253,10 +255,20 @@ class BoCDecisionPromptBuilder(BaseModel):
         direction_df = context.get_series(task.target_series_id)
         rate_df = context.get_series(TARGET_RATE_SERIES_ID)
         yield_df = context.get_series(BOND_YIELD_2YR_SERIES_ID)
-        cpi_df = context.get_series(CPI_SERIES_ID)
+        us_yield_df = context.get_series(US_BOND_YIELD_2YR_SERIES_ID)
+        cpi_median_df = context.get_series(CPI_MEDIAN_SERIES_ID)
+        cpi_trim_df = context.get_series(CPI_TRIM_SERIES_ID)
         unemployment_df = context.get_series(UNEMPLOYMENT_SERIES_ID)
 
-        features = build_feature_row(as_of, rate_df, yield_df, cpi_df, unemployment_df)
+        features = build_feature_row(
+            as_of,
+            rate_df,
+            yield_df,
+            us_yield_df,
+            cpi_median_df,
+            cpi_trim_df,
+            unemployment_df,
+        )
 
         labels_by_value = {category.value: category.label for category in task.categories}
         outcomes: list[dict[str, object]] = []

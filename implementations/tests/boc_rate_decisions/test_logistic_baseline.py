@@ -24,17 +24,30 @@ def _monthly(start: str, periods: int, values: list[float]) -> pd.DataFrame:
     return pd.DataFrame({"timestamp": dates, "value": values, "released_at": dates + pd.Timedelta(days=21)})
 
 
-def _clean_inputs(origin: pd.Timestamp) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _clean_inputs(
+    origin: pd.Timestamp,
+) -> tuple[
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+]:
     """Flat, easy-to-hand-check inputs covering 36 months before ``origin``."""
     start = origin - pd.DateOffset(months=36)
     rate = _daily(str(start.date()), str(origin.date()), 5.0)
     yield_2yr = _daily(str(start.date()), str(origin.date()), 4.0)
-    # CPI grows ~2%/yr in level terms: each month is a fixed ratio above 12 months prior.
+    us_yield_2yr = _daily(str(start.date()), str(origin.date()), 3.0)
+    # Core measures are already monthly year-over-year percentages, not index levels.
     n_months = 37
-    cpi_values = [100.0 * (1.02 ** (i / 12)) for i in range(n_months)]
-    cpi = _monthly(str(start.date()), n_months, cpi_values)
+    cpi_values = [2.0] * n_months
+    cpi_median = _monthly(str(start.date()), n_months, cpi_values)
+    cpi_trim = _monthly(str(start.date()), n_months, cpi_values)
     unemployment = _monthly(str(start.date()), n_months, [6.0] * n_months)
-    return rate, yield_2yr, cpi, unemployment
+    return rate, yield_2yr, us_yield_2yr, cpi_median, cpi_trim, unemployment
 
 
 class TestBuildFeatureRowLeakSafety:
@@ -48,8 +61,10 @@ class TestBuildFeatureRowLeakSafety:
         assert features is not None
         assert set(features) == set(FEATURE_NAMES)
         assert features["yield_spread"] == pytest.approx(-1.0)
+        assert features["fed_boc_2yr_spread"] == pytest.approx(-1.0)
         assert features["rate_momentum"] == pytest.approx(0.0)
-        assert features["inflation_gap"] == pytest.approx(0.0, abs=1e-9)
+        assert features["cpi_median_gap"] == pytest.approx(0.0, abs=1e-9)
+        assert features["cpi_trim_gap"] == pytest.approx(0.0, abs=1e-9)
         assert features["unemployment_momentum"] == pytest.approx(0.0)
 
     def test_poisoned_unavailable_rows_do_not_change_features(self) -> None:
@@ -64,8 +79,10 @@ class TestBuildFeatureRowLeakSafety:
           release came ~3 weeks after the month it describes).
         """
         origin = pd.Timestamp("2024-06-04")
-        rate, yield_2yr, cpi, unemployment = _clean_inputs(origin)
-        baseline = build_feature_row(origin, rate, yield_2yr, cpi, unemployment)
+        rate, yield_2yr, us_yield_2yr, cpi_median, cpi_trim, unemployment = _clean_inputs(origin)
+        baseline = build_feature_row(
+            origin, rate, yield_2yr, us_yield_2yr, cpi_median, cpi_trim, unemployment
+        )
         assert baseline is not None
 
         poison = 999.0
@@ -87,15 +104,27 @@ class TestBuildFeatureRowLeakSafety:
         )
         yield_poisoned = yield_2yr.copy()
         yield_poisoned.loc[yield_poisoned["timestamp"] == origin, "value"] = poison
+        us_yield_poisoned = us_yield_2yr.copy()
+        us_yield_poisoned.loc[us_yield_poisoned["timestamp"] == origin, "value"] = poison
 
         # Newest visible reference month (June, timestamp 2024-06-01 <= origin):
         # genuinely published late June, so it must be dropped by the extra lag.
-        cpi_poisoned = cpi.copy()
-        cpi_poisoned.loc[cpi_poisoned["timestamp"] == pd.Timestamp("2024-06-01"), "value"] = poison
+        cpi_median_poisoned = cpi_median.copy()
+        cpi_median_poisoned.loc[cpi_median_poisoned["timestamp"] == pd.Timestamp("2024-06-01"), "value"] = poison
+        cpi_trim_poisoned = cpi_trim.copy()
+        cpi_trim_poisoned.loc[cpi_trim_poisoned["timestamp"] == pd.Timestamp("2024-06-01"), "value"] = poison
         unemployment_poisoned = unemployment.copy()
         unemployment_poisoned.loc[unemployment_poisoned["timestamp"] == pd.Timestamp("2024-06-01"), "value"] = poison
 
-        poisoned = build_feature_row(origin, rate_poisoned, yield_poisoned, cpi_poisoned, unemployment_poisoned)
+        poisoned = build_feature_row(
+            origin,
+            rate_poisoned,
+            yield_poisoned,
+            us_yield_poisoned,
+            cpi_median_poisoned,
+            cpi_trim_poisoned,
+            unemployment_poisoned,
+        )
 
         assert poisoned is not None
         for name in FEATURE_NAMES:
@@ -104,7 +133,12 @@ class TestBuildFeatureRowLeakSafety:
     def test_insufficient_history_returns_none(self) -> None:
         """Fewer than 13 usable reference months means no feature row, not a crash."""
         origin = pd.Timestamp("2024-06-04")
-        rate, yield_2yr, _, unemployment = _clean_inputs(origin)
+        rate, yield_2yr, _, _, cpi_trim, unemployment = _clean_inputs(origin)
         short_cpi = _monthly("2023-08-01", 11, [100.0] * 11)
 
-        assert build_feature_row(origin, rate, yield_2yr, short_cpi, unemployment) is None
+        assert (
+            build_feature_row(
+                origin, rate, yield_2yr, rate, short_cpi, cpi_trim, unemployment
+            )
+            is None
+        )

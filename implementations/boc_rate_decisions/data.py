@@ -17,7 +17,7 @@ Three kinds of data come together here:
    first-class series means the standard resolution and scoring paths in the
    evaluation harness apply unchanged.
 
-Macro covariates (CPI, unemployment, bond yields) are registered for the
+Macro covariates (core inflation, unemployment, bond yields) are registered for the
 conventional baseline and for prompt context. **Leakage warning:** monthly
 covariates carry approximate ``released_at`` stamps (see the adapters);
 feature code must lag them conservatively rather than trusting day-level
@@ -61,8 +61,14 @@ DIRECTION_TASK_CATEGORIES: list[TaskCategory] = [
 BOND_YIELD_2YR_SERIES_ID = "boc_govt_bond_yield_2yr"
 """Daily Government of Canada 2-year benchmark bond yield (percent)."""
 
-CPI_SERIES_ID = "cpi_all_items_canada"
-"""Monthly CPI All-items, Canada (2002=100). Shared with the getting-started use case."""
+US_BOND_YIELD_2YR_SERIES_ID = "fred_us_treasury_yield_2yr"
+"""Daily US Treasury 2-year yield used for the Fed-BoC 2Y differential."""
+
+CPI_MEDIAN_SERIES_ID = "cpi_median_canada"
+"""Monthly Bank of Canada CPI-median measure (year-over-year percent)."""
+
+CPI_TRIM_SERIES_ID = "cpi_trim_canada"
+"""Monthly Bank of Canada CPI-trim measure (year-over-year percent)."""
 
 UNEMPLOYMENT_SERIES_ID = "fred_canada_unemployment_rate"
 """Monthly Canadian unemployment rate, seasonally adjusted (percent, FRED)."""
@@ -70,11 +76,14 @@ UNEMPLOYMENT_SERIES_ID = "fred_canada_unemployment_rate"
 RATES_TABLE_ID = "10-10-0139-01"
 """StatCan financial-market statistics table (daily, Bank of Canada rates and yields)."""
 
-CPI_TABLE_ID = "18-10-0004-11"
-"""StatCan CPI table (monthly, not seasonally adjusted)."""
+CPI_CORE_TABLE_ID = "18-10-0256-01"
+"""StatCan table containing the Bank of Canada's CPI-median and CPI-trim measures."""
 
 UNEMPLOYMENT_FRED_ID = "LRUNTTTTCAM156S"
 """FRED series: Monthly Unemployment Rate, Total, All Persons for Canada (SA)."""
+
+US_BOND_YIELD_2YR_FRED_ID = "DGS2"
+"""FRED series: market yield on US Treasury securities at 2-year constant maturity."""
 
 MEETING_SCHEDULE_PATH = Path(__file__).resolve().parent / "meeting_schedule.yaml"
 """Committed, source-cited BoC fixed announcement date calendar."""
@@ -351,8 +360,12 @@ def build_boc_service(
       series (the ordered-categorical task target).
     - ``boc_govt_bond_yield_2yr`` — daily 2-year GoC benchmark yield, a
       market-implied gauge of near-term policy expectations.
-    - ``cpi_all_items_canada`` — monthly headline CPI (the BoC targets 2%
-      CPI inflation).
+        - ``fred_us_treasury_yield_2yr`` — daily US Treasury 2-year yield, paired
+            with the GoC yield for the Fed-BoC 2Y differential.
+        - ``canada_terms_of_trade`` — monthly Canada Terms of Trade index derived
+            from export/import unit values.
+        - ``cpi_median_canada`` and ``cpi_trim_canada`` — monthly Bank of Canada
+            core inflation measures used to assess persistent underlying inflation.
     - ``fred_canada_unemployment_rate`` — monthly labour-market covariate.
 
     Parameters
@@ -454,20 +467,62 @@ def build_boc_service(
         ),
     )
 
+    if include_fred:
+        svc.register(
+            US_BOND_YIELD_2YR_SERIES_ID,
+            FREDAdapter(US_BOND_YIELD_2YR_FRED_ID, cache_dir=fred_dir),
+            SeriesMetadata(
+                series_id=US_BOND_YIELD_2YR_SERIES_ID,
+                description="US Treasury 2-year constant-maturity yield",
+                source=f"FRED ({US_BOND_YIELD_2YR_FRED_ID})",
+                units="Percent",
+                frequency="B",
+            ),
+        )
+
     svc.register(
-        CPI_SERIES_ID,
+        CPI_MEDIAN_SERIES_ID,
         StatCanAdapter(
-            table_id=CPI_TABLE_ID,
-            member_filter={"GEO": "Canada", "Products and product groups": "All-items"},
+            table_id=CPI_CORE_TABLE_ID,
+            member_filter={
+                "GEO": "Canada",
+                "Alternative measures": (
+                    "Measure of core inflation based on a weighted median approach, "
+                    "CPI-median (year-over-year percent change)"
+                ),
+            },
             cache_dir=statcan_dir,
         ),
         SeriesMetadata(
-            series_id=CPI_SERIES_ID,
-            description="CPI All-items, Canada (2002=100)",
-            source=f"StatCan ({CPI_TABLE_ID})",
-            units="Index 2002=100",
+            series_id=CPI_MEDIAN_SERIES_ID,
+            description="Bank of Canada CPI-median core inflation measure, Canada",
+            source=f"StatCan ({CPI_CORE_TABLE_ID})",
+            units="Percent",
             frequency="MS",
-            table_id=CPI_TABLE_ID,
+            table_id=CPI_CORE_TABLE_ID,
+        ),
+    )
+
+    svc.register(
+        CPI_TRIM_SERIES_ID,
+        StatCanAdapter(
+            table_id=CPI_CORE_TABLE_ID,
+            member_filter={
+                "GEO": "Canada",
+                "Alternative measures": (
+                    "Measure of core inflation based on a trimmed mean approach, "
+                    "CPI-trim (year-over-year percent change)"
+                ),
+            },
+            cache_dir=statcan_dir,
+        ),
+        SeriesMetadata(
+            series_id=CPI_TRIM_SERIES_ID,
+            description="Bank of Canada CPI-trim core inflation measure, Canada",
+            source=f"StatCan ({CPI_CORE_TABLE_ID})",
+            units="Percent",
+            frequency="MS",
+            table_id=CPI_CORE_TABLE_ID,
         ),
     )
 
@@ -489,8 +544,9 @@ def build_boc_service(
 
 __all__ = [
     "BOND_YIELD_2YR_SERIES_ID",
-    "CPI_SERIES_ID",
-    "CPI_TABLE_ID",
+    "CPI_CORE_TABLE_ID",
+    "CPI_MEDIAN_SERIES_ID",
+    "CPI_TRIM_SERIES_ID",
     "DEFAULT_FRED_CACHE_DIR",
     "DEFAULT_STATCAN_CACHE_DIR",
     "DIRECTION_SERIES_ID",
@@ -501,6 +557,8 @@ __all__ = [
     "TARGET_RATE_SERIES_ID",
     "UNEMPLOYMENT_FRED_ID",
     "UNEMPLOYMENT_SERIES_ID",
+    "US_BOND_YIELD_2YR_FRED_ID",
+    "US_BOND_YIELD_2YR_SERIES_ID",
     "BoCDecisionEventAdapter",
     "build_boc_service",
     "derive_rate_decision_directions",

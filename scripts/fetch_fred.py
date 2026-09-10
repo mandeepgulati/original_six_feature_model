@@ -80,6 +80,13 @@ DEFAULT_CACHE_DIR = REPO_ROOT / "data" / "fred"
 
 FOOD_FRED_SERIES: list[tuple[str, str, str, str, str]] = [
     (
+        "fred_us_treasury_yield_2yr",
+        "DGS2",
+        "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity",
+        "Percent",
+        "B",
+    ),
+    (
         "fred_us_cpi_food_at_home",
         "CPIFABSL",
         "US CPI: Food at Home, All Urban Consumers (1982-84=100)",

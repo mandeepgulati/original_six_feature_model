@@ -5,8 +5,8 @@ Downloads (or revalidates) the StatCan tables used by
 
 - 10-10-0139-01 — daily financial-market statistics (BoC target rate,
   GoC benchmark bond yields).
-- 18-10-0004-11 — monthly CPI (All-items covariate; shared with the
-  getting-started and food-price use cases).
+- 18-10-0256-01 — monthly Bank of Canada core inflation measures
+    (CPI-median and CPI-trim).
 
 It then derives the per-meeting rate-cut event series, validates the curated
 meeting calendar against observed target-rate changes, and prints a summary.
@@ -56,7 +56,7 @@ from boc_rate_decisions.data import (
 DEFAULT_CACHE_DIR = REPO_ROOT / "data" / "statcan"
 
 # Normalized zip names for the tables this experiment depends on.
-_TABLE_ZIPS = ["10100139-eng.zip", "18100004-eng.zip"]
+_TABLE_ZIPS = ["10100139-eng.zip", "18100025-eng.zip"]
 
 
 def main() -> None:

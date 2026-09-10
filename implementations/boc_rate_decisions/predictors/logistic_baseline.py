@@ -15,12 +15,16 @@ Features (all computed leak-safely as of the forecast origin):
 - ``yield_spread``   — 2-year GoC yield minus the current target rate. The
   bond market prices expected policy; a 2yr yield well below the policy rate
   means the market expects cuts. Empirically the strongest single signal.
+- ``fed_boc_2yr_spread`` — US Treasury 2-year yield minus the GoC 2-year yield.
+    This captures relative Fed-BoC policy expectations and cross-border rate
+    pressure.
 - ``rate_momentum``  — change in the target rate over the trailing 90 days.
   Cuts cluster in easing cycles; the best predictor of a cut is being in one.
-- ``inflation_gap``  — latest available CPI year-over-year inflation minus
-  the Bank's 2% target. Above-target inflation argues against cuts.
+- ``cpi_median_gap`` and ``cpi_trim_gap`` — latest available Bank of Canada
+    core inflation measures minus the 2% target. Above-target core inflation
+    argues against cuts.
 - ``unemployment_momentum`` — 12-month change in the unemployment rate.
-  A deteriorating labour market argues for cuts.
+    A deteriorating labour market argues for cuts.
 
 The model is re-fit *inside* ``predict()`` at every origin (like the Darts
 predictors): training examples are all past meetings whose outcomes are
@@ -51,14 +55,23 @@ from aieng.forecasting.evaluation.task import ForecastingTask, TaskCategory
 
 from ..data import (
     BOND_YIELD_2YR_SERIES_ID,
-    CPI_SERIES_ID,
+    CPI_MEDIAN_SERIES_ID,
+    CPI_TRIM_SERIES_ID,
     DIRECTION_TASK_CATEGORIES,
     TARGET_RATE_SERIES_ID,
     UNEMPLOYMENT_SERIES_ID,
+    US_BOND_YIELD_2YR_SERIES_ID,
 )
 
 
-FEATURE_NAMES = ["yield_spread", "rate_momentum", "inflation_gap", "unemployment_momentum"]
+FEATURE_NAMES = [
+    "yield_spread",
+    "fed_boc_2yr_spread",
+    "rate_momentum",
+    "cpi_median_gap",
+    "cpi_trim_gap",
+    "unemployment_momentum",
+]
 """Feature columns produced by :func:`build_feature_row`, in order."""
 
 #: Daily market data prints with a 1-business-day lag; slicing by
@@ -86,8 +99,13 @@ def build_feature_row(
     origin: pd.Timestamp,
     rate_df: pd.DataFrame,
     yield_df: pd.DataFrame,
-    cpi_df: pd.DataFrame,
+    us_yield_df: pd.DataFrame,
+    cpi_median_df: pd.DataFrame,
+    cpi_trim_df: pd.DataFrame,
     unemployment_df: pd.DataFrame,
+    # bos_future_sales_df: pd.DataFrame | None = None,
+    # bos_output_prices_df: pd.DataFrame | None = None,
+    # csce_inflation_df: pd.DataFrame | None = None,
 ) -> dict[str, float] | None:
     """Compute the macro feature vector available at ``origin``.
 
@@ -99,7 +117,7 @@ def build_feature_row(
     ----------
     origin : pd.Timestamp
         The forecast origin (announcement date minus one day for this task).
-    rate_df, yield_df, cpi_df, unemployment_df : pd.DataFrame
+    rate_df, yield_df, us_yield_df, cpi_median_df, cpi_trim_df, unemployment_df,
         Canonical series frames (``timestamp``/``value``/``released_at``).
         May contain rows after ``origin``; they are ignored.
 
@@ -114,27 +132,41 @@ def build_feature_row(
     rate_now = _last_value_before(rate_df, daily_cutoff)
     rate_then = _last_value_before(rate_df, daily_cutoff - pd.Timedelta(days=_RATE_MOMENTUM_WINDOW_DAYS))
     yield_2yr = _last_value_before(yield_df, daily_cutoff)
-    if rate_now is None or rate_then is None or yield_2yr is None:
+    us_yield_2yr = _last_value_before(us_yield_df, daily_cutoff)
+    if (
+        rate_now is None
+        or rate_then is None
+        or yield_2yr is None
+        or us_yield_2yr is None
+    ):
         return None
 
     # Monthly series: slice by timestamp, then drop the newest reference month.
-    cpi_visible = cpi_df[cpi_df["timestamp"] <= origin].iloc[: -_MONTHLY_EXTRA_LAG_MONTHS or None]
+    cpi_median_visible = cpi_median_df[cpi_median_df["timestamp"] <= origin].iloc[
+        : -_MONTHLY_EXTRA_LAG_MONTHS or None
+    ]
+    cpi_trim_visible = cpi_trim_df[cpi_trim_df["timestamp"] <= origin].iloc[: -_MONTHLY_EXTRA_LAG_MONTHS or None]
     unemp_visible = unemployment_df[unemployment_df["timestamp"] <= origin].iloc[: -_MONTHLY_EXTRA_LAG_MONTHS or None]
     # YoY inflation needs 13 reference months; unemployment momentum needs 13.
-    if len(cpi_visible) < 13 or len(unemp_visible) < _UNEMPLOYMENT_MOMENTUM_MONTHS + 1:
+    if (
+        len(cpi_median_visible) < 13
+        or len(cpi_trim_visible) < 13
+        or len(unemp_visible) < _UNEMPLOYMENT_MOMENTUM_MONTHS + 1
+    ):
         return None
 
-    cpi_now = float(cpi_visible["value"].iloc[-1])
-    cpi_year_ago = float(cpi_visible["value"].iloc[-13])
-    inflation_yoy = (cpi_now / cpi_year_ago - 1.0) * 100.0
+    # StatCan's core-measure table already publishes year-over-year percentages.
+    cpi_median_yoy = float(cpi_median_visible["value"].iloc[-1])
+    cpi_trim_yoy = float(cpi_trim_visible["value"].iloc[-1])
 
     unemp_now = float(unemp_visible["value"].iloc[-1])
     unemp_year_ago = float(unemp_visible["value"].iloc[-(_UNEMPLOYMENT_MOMENTUM_MONTHS + 1)])
-
     return {
         "yield_spread": yield_2yr - rate_now,
+        "fed_boc_2yr_spread": us_yield_2yr - yield_2yr,
         "rate_momentum": rate_now - rate_then,
-        "inflation_gap": inflation_yoy - 2.0,
+        "cpi_median_gap": cpi_median_yoy - 2.0,
+        "cpi_trim_gap": cpi_trim_yoy - 2.0,
         "unemployment_momentum": unemp_now - unemp_year_ago,
     }
 
@@ -158,7 +190,11 @@ class BoCLogisticPredictor(Predictor):
         defensible forecast instead of an error.
     """
 
-    def __init__(self, regularization_c: float = 1.0, min_training_examples: int = 16) -> None:
+    def __init__(
+        self,
+        regularization_c: float = 1.0,
+        min_training_examples: int = 16,
+    ) -> None:
         self._c = regularization_c
         self._min_train = min_training_examples
 
@@ -182,13 +218,31 @@ class BoCLogisticPredictor(Predictor):
         target_df = context.get_series(task.target_series_id)
         rate_df = context.get_series(TARGET_RATE_SERIES_ID)
         yield_df = context.get_series(BOND_YIELD_2YR_SERIES_ID)
-        cpi_df = context.get_series(CPI_SERIES_ID)
+        us_yield_df = context.get_series(US_BOND_YIELD_2YR_SERIES_ID)
+        cpi_median_df = context.get_series(CPI_MEDIAN_SERIES_ID)
+        cpi_trim_df = context.get_series(CPI_TRIM_SERIES_ID)
         unemployment_df = context.get_series(UNEMPLOYMENT_SERIES_ID)
-
         offset = pd.tseries.frequencies.to_offset(task.frequency)
         lead = offset * task.horizons[0]
-        feature_rows, outcomes = self._build_training_data(target_df, rate_df, yield_df, cpi_df, unemployment_df, lead)
-        current_features = build_feature_row(as_of, rate_df, yield_df, cpi_df, unemployment_df)
+        feature_rows, outcomes = self._build_training_data(
+            target_df,
+            rate_df,
+            yield_df,
+            us_yield_df,
+            cpi_median_df,
+            cpi_trim_df,
+            unemployment_df,
+            lead,
+        )
+        current_features = build_feature_row(
+            as_of,
+            rate_df,
+            yield_df,
+            us_yield_df,
+            cpi_median_df,
+            cpi_trim_df,
+            unemployment_df,
+        )
 
         if task.payload_type == "binary":
             payload, model_info = self._predict_binary(feature_rows, outcomes, current_features)
@@ -215,7 +269,9 @@ class BoCLogisticPredictor(Predictor):
         target_df: pd.DataFrame,
         rate_df: pd.DataFrame,
         yield_df: pd.DataFrame,
-        cpi_df: pd.DataFrame,
+        us_yield_df: pd.DataFrame,
+        cpi_median_df: pd.DataFrame,
+        cpi_trim_df: pd.DataFrame,
         unemployment_df: pd.DataFrame,
         lead: pd.DateOffset,
     ) -> tuple[list[list[float]], list[float]]:
@@ -232,7 +288,15 @@ class BoCLogisticPredictor(Predictor):
         outcomes: list[float] = []
         for meeting, outcome in zip(target_df["timestamp"], target_df["value"]):
             past_origin = pd.Timestamp(meeting) - lead
-            features = build_feature_row(past_origin, rate_df, yield_df, cpi_df, unemployment_df)
+            features = build_feature_row(
+                past_origin,
+                rate_df,
+                yield_df,
+                us_yield_df,
+                cpi_median_df,
+                cpi_trim_df,
+                unemployment_df,
+            )
             if features is None:
                 continue
             feature_rows.append([features[name] for name in FEATURE_NAMES])
