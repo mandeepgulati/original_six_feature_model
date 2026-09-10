@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2015-09-09_en",
+    "publication_date": "2015-09-09",
+    "title": "Bank of Canada rate announcement 2015-09-09",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 2574,
+  "est_tokens": 644,
+  "extracted_at": "2026-09-10T07:39:52.893871",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2015-09-09_en.md"
+}

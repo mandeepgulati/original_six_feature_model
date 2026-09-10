@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2021-12-08_en",
+    "publication_date": "2021-12-08",
+    "title": "Bank of Canada rate announcement 2021-12-08",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3803,
+  "est_tokens": 951,
+  "extracted_at": "2026-09-10T07:40:12.418260",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2021-12-08_en.md"
+}

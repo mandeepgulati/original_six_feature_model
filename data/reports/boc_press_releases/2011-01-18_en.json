@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2011-01-18_en",
+    "publication_date": "2011-01-18",
+    "title": "Bank of Canada rate announcement 2011-01-18",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3482,
+  "est_tokens": 871,
+  "extracted_at": "2026-09-10T07:39:36.658975",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2011-01-18_en.md"
+}

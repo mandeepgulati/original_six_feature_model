@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2019-10-30_en",
+    "publication_date": "2019-10-30",
+    "title": "Bank of Canada rate announcement 2019-10-30",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3294,
+  "est_tokens": 824,
+  "extracted_at": "2026-09-10T07:40:05.440060",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2019-10-30_en.md"
+}

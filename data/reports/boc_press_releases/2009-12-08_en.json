@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2009-12-08_en",
+    "publication_date": "2009-12-08",
+    "title": "Bank of Canada rate announcement 2009-12-08",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 2712,
+  "est_tokens": 678,
+  "extracted_at": "2026-09-10T07:39:32.885818",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2009-12-08_en.md"
+}

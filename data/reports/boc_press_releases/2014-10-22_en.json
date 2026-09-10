@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2014-10-22_en",
+    "publication_date": "2014-10-22",
+    "title": "Bank of Canada rate announcement 2014-10-22",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3229,
+  "est_tokens": 808,
+  "extracted_at": "2026-09-10T07:39:50.044328",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2014-10-22_en.md"
+}

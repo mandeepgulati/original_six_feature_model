@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2013-09-04_en",
+    "publication_date": "2013-09-04",
+    "title": "Bank of Canada rate announcement 2013-09-04",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 2567,
+  "est_tokens": 642,
+  "extracted_at": "2026-09-10T07:39:45.691211",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2013-09-04_en.md"
+}

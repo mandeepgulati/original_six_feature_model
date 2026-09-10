@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2018-04-18_en",
+    "publication_date": "2018-04-18",
+    "title": "Bank of Canada rate announcement 2018-04-18",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3893,
+  "est_tokens": 974,
+  "extracted_at": "2026-09-10T07:40:01.313997",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2018-04-18_en.md"
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2009-10-20_en",
+    "publication_date": "2009-10-20",
+    "title": "Bank of Canada rate announcement 2009-10-20",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3198,
+  "est_tokens": 800,
+  "extracted_at": "2026-09-10T07:39:32.311806",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2009-10-20_en.md"
+}

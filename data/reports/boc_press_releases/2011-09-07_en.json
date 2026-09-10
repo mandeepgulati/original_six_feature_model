@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2011-09-07_en",
+    "publication_date": "2011-09-07",
+    "title": "Bank of Canada rate announcement 2011-09-07",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3677,
+  "est_tokens": 920,
+  "extracted_at": "2026-09-10T07:39:38.521515",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2011-09-07_en.md"
+}

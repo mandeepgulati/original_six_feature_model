@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2021-07-14_en",
+    "publication_date": "2021-07-14",
+    "title": "Bank of Canada rate announcement 2021-07-14",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 4949,
+  "est_tokens": 1238,
+  "extracted_at": "2026-09-10T07:40:10.847168",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2021-07-14_en.md"
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2025-09-17_en",
+    "publication_date": "2025-09-17",
+    "title": "Bank of Canada rate announcement 2025-09-17",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3754,
+  "est_tokens": 939,
+  "extracted_at": "2026-09-10T07:40:24.267757",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2025-09-17_en.md"
+}

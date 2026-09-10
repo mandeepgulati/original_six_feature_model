@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2023-03-08_en",
+    "publication_date": "2023-03-08",
+    "title": "Bank of Canada rate announcement 2023-03-08",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3585,
+  "est_tokens": 897,
+  "extracted_at": "2026-09-10T07:40:16.330571",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2023-03-08_en.md"
+}

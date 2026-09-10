@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2021-03-10_en",
+    "publication_date": "2021-03-10",
+    "title": "Bank of Canada rate announcement 2021-03-10",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 4264,
+  "est_tokens": 1066,
+  "extracted_at": "2026-09-10T07:40:09.653345",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2021-03-10_en.md"
+}

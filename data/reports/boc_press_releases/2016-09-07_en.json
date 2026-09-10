@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2016-09-07_en",
+    "publication_date": "2016-09-07",
+    "title": "Bank of Canada rate announcement 2016-09-07",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3061,
+  "est_tokens": 766,
+  "extracted_at": "2026-09-10T07:39:56.134845",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2016-09-07_en.md"
+}

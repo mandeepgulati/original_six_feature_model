@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2024-06-05_en",
+    "publication_date": "2024-06-05",
+    "title": "Bank of Canada rate announcement 2024-06-05",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3010,
+  "est_tokens": 753,
+  "extracted_at": "2026-09-10T07:40:21.186706",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2024-06-05_en.md"
+}

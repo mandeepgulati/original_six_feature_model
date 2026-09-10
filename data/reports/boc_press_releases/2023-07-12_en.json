@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2023-07-12_en",
+    "publication_date": "2023-07-12",
+    "title": "Bank of Canada rate announcement 2023-07-12",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 4684,
+  "est_tokens": 1171,
+  "extracted_at": "2026-09-10T07:40:17.804837",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2023-07-12_en.md"
+}

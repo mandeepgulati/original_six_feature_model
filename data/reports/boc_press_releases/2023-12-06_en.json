@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2023-12-06_en",
+    "publication_date": "2023-12-06",
+    "title": "Bank of Canada rate announcement 2023-12-06",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3365,
+  "est_tokens": 842,
+  "extracted_at": "2026-09-10T07:40:19.188243",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2023-12-06_en.md"
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2013-01-23_en",
+    "publication_date": "2013-01-23",
+    "title": "Bank of Canada rate announcement 2013-01-23",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3963,
+  "est_tokens": 991,
+  "extracted_at": "2026-09-10T07:39:43.465605",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2013-01-23_en.md"
+}

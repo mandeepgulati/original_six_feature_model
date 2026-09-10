@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2017-01-18_en",
+    "publication_date": "2017-01-18",
+    "title": "Bank of Canada rate announcement 2017-01-18",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3090,
+  "est_tokens": 773,
+  "extracted_at": "2026-09-10T07:39:57.499056",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2017-01-18_en.md"
+}

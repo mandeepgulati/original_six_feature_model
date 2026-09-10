@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2013-04-17_en",
+    "publication_date": "2013-04-17",
+    "title": "Bank of Canada rate announcement 2013-04-17",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3941,
+  "est_tokens": 986,
+  "extracted_at": "2026-09-10T07:39:44.468215",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2013-04-17_en.md"
+}

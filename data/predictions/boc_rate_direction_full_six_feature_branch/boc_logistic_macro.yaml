@@ -1,0 +1,2622 @@
+spec:
+  task:
+    task_id: boc_rate_direction_next_meeting
+    target_series_id: boc_rate_decision_direction
+    horizons:
+    - 28
+    frequency: D
+    description: At the Bank of Canada fixed announcement date occurring 28 days after
+      the forecast origin, will the Bank CUT, HOLD, or HIKE its target for the overnight
+      rate? Outcome is the direction of the target-rate change at that announcement
+      (any size). Announcements are at 09:45 ET; the forecast must be issued with
+      information available four weeks before the announcement, before markets have
+      converged on the decision.
+    payload_type: categorical
+    categories:
+    - label: cut
+      value: -1.0
+    - label: hold
+      value: 0.0
+    - label: hike
+      value: 1.0
+    resolution_fn: observed_value_at_resolution_timestamp
+  start: '2009-12-01T00:00:00'
+  end: '2024-12-31T00:00:00'
+  stride: 1
+  origin_dates:
+  - '2009-12-22T00:00:00'
+  - '2010-02-02T00:00:00'
+  - '2010-03-23T00:00:00'
+  - '2010-05-04T00:00:00'
+  - '2010-06-22T00:00:00'
+  - '2010-08-11T00:00:00'
+  - '2010-09-21T00:00:00'
+  - '2010-11-09T00:00:00'
+  - '2010-12-21T00:00:00'
+  - '2011-02-01T00:00:00'
+  - '2011-03-15T00:00:00'
+  - '2011-05-03T00:00:00'
+  - '2011-06-21T00:00:00'
+  - '2011-08-10T00:00:00'
+  - '2011-09-27T00:00:00'
+  - '2011-11-08T00:00:00'
+  - '2011-12-20T00:00:00'
+  - '2012-02-09T00:00:00'
+  - '2012-03-20T00:00:00'
+  - '2012-05-08T00:00:00'
+  - '2012-06-19T00:00:00'
+  - '2012-08-08T00:00:00'
+  - '2012-09-25T00:00:00'
+  - '2012-11-06T00:00:00'
+  - '2012-12-26T00:00:00'
+  - '2013-02-06T00:00:00'
+  - '2013-03-20T00:00:00'
+  - '2013-05-01T00:00:00'
+  - '2013-06-19T00:00:00'
+  - '2013-08-07T00:00:00'
+  - '2013-09-25T00:00:00'
+  - '2013-11-06T00:00:00'
+  - '2013-12-25T00:00:00'
+  - '2014-02-05T00:00:00'
+  - '2014-03-19T00:00:00'
+  - '2014-05-07T00:00:00'
+  - '2014-06-18T00:00:00'
+  - '2014-08-06T00:00:00'
+  - '2014-09-24T00:00:00'
+  - '2014-11-05T00:00:00'
+  - '2014-12-24T00:00:00'
+  - '2015-02-04T00:00:00'
+  - '2015-03-18T00:00:00'
+  - '2015-04-29T00:00:00'
+  - '2015-06-17T00:00:00'
+  - '2015-08-12T00:00:00'
+  - '2015-09-23T00:00:00'
+  - '2015-11-04T00:00:00'
+  - '2015-12-23T00:00:00'
+  - '2016-02-10T00:00:00'
+  - '2016-03-16T00:00:00'
+  - '2016-04-27T00:00:00'
+  - '2016-06-15T00:00:00'
+  - '2016-08-10T00:00:00'
+  - '2016-09-21T00:00:00'
+  - '2016-11-09T00:00:00'
+  - '2016-12-21T00:00:00'
+  - '2017-02-01T00:00:00'
+  - '2017-03-15T00:00:00'
+  - '2017-04-26T00:00:00'
+  - '2017-06-14T00:00:00'
+  - '2017-08-09T00:00:00'
+  - '2017-09-27T00:00:00'
+  - '2017-11-08T00:00:00'
+  - '2017-12-20T00:00:00'
+  - '2018-02-07T00:00:00'
+  - '2018-03-21T00:00:00'
+  - '2018-05-02T00:00:00'
+  - '2018-06-13T00:00:00'
+  - '2018-08-08T00:00:00'
+  - '2018-09-26T00:00:00'
+  - '2018-11-07T00:00:00'
+  - '2018-12-12T00:00:00'
+  - '2019-02-06T00:00:00'
+  - '2019-03-27T00:00:00'
+  - '2019-05-01T00:00:00'
+  - '2019-06-12T00:00:00'
+  - '2019-08-07T00:00:00'
+  - '2019-10-02T00:00:00'
+  - '2019-11-06T00:00:00'
+  - '2019-12-25T00:00:00'
+  - '2020-02-05T00:00:00'
+  - '2020-03-18T00:00:00'
+  - '2020-05-06T00:00:00'
+  - '2020-06-17T00:00:00'
+  - '2020-08-12T00:00:00'
+  - '2020-09-30T00:00:00'
+  - '2020-11-11T00:00:00'
+  - '2020-12-23T00:00:00'
+  - '2021-02-10T00:00:00'
+  - '2021-03-24T00:00:00'
+  - '2021-05-12T00:00:00'
+  - '2021-06-16T00:00:00'
+  - '2021-08-11T00:00:00'
+  - '2021-09-29T00:00:00'
+  - '2021-11-10T00:00:00'
+  - '2021-12-29T00:00:00'
+  - '2022-02-02T00:00:00'
+  - '2022-03-16T00:00:00'
+  - '2022-05-04T00:00:00'
+  - '2022-06-15T00:00:00'
+  - '2022-08-10T00:00:00'
+  - '2022-09-28T00:00:00'
+  - '2022-11-09T00:00:00'
+  - '2022-12-28T00:00:00'
+  - '2023-02-08T00:00:00'
+  - '2023-03-15T00:00:00'
+  - '2023-05-10T00:00:00'
+  - '2023-06-14T00:00:00'
+  - '2023-08-09T00:00:00'
+  - '2023-09-27T00:00:00'
+  - '2023-11-08T00:00:00'
+  - '2023-12-27T00:00:00'
+  - '2024-02-07T00:00:00'
+  - '2024-03-13T00:00:00'
+  - '2024-05-08T00:00:00'
+  - '2024-06-26T00:00:00'
+  - '2024-08-07T00:00:00'
+  - '2024-09-25T00:00:00'
+  - '2024-11-13T00:00:00'
+  warmup: 8
+  description: Backtest across all 120 BoC fixed announcement dates from 2010 through
+    2024. At each origin (announcement date minus 28 days) predictors emit probabilities
+    over cut, hold, and hike, resolved against the derived direction series and scored
+    with RPS. 2009 meetings are excluded as targets but visible as history.
+predictor_id: boc_logistic_macro
+predictions:
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.363941'
+  as_of: '2009-12-22T00:00:00'
+  forecast_date: '2010-01-19T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.375
+      hold: 0.625
+      hike: 0.0
+  metadata:
+    n_train: 8
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.416202'
+  as_of: '2010-02-02T00:00:00'
+  forecast_date: '2010-03-02T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.3333333333333333
+      hold: 0.6666666666666666
+      hike: 0.0
+  metadata:
+    n_train: 9
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.471364'
+  as_of: '2010-03-23T00:00:00'
+  forecast_date: '2010-04-20T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.3
+      hold: 0.7
+      hike: 0.0
+  metadata:
+    n_train: 10
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.529113'
+  as_of: '2010-05-04T00:00:00'
+  forecast_date: '2010-06-01T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.2727272727272727
+      hold: 0.7272727272727273
+      hike: 0.0
+  metadata:
+    n_train: 11
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.589725'
+  as_of: '2010-06-22T00:00:00'
+  forecast_date: '2010-07-20T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.25
+      hold: 0.6666666666666666
+      hike: 0.08333333333333333
+  metadata:
+    n_train: 12
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.653816'
+  as_of: '2010-08-11T00:00:00'
+  forecast_date: '2010-09-08T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.23076923076923078
+      hold: 0.6153846153846154
+      hike: 0.15384615384615385
+  metadata:
+    n_train: 13
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.719126'
+  as_of: '2010-09-21T00:00:00'
+  forecast_date: '2010-10-19T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.21428571428571427
+      hold: 0.5714285714285714
+      hike: 0.21428571428571427
+  metadata:
+    n_train: 14
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:30.787414'
+  as_of: '2010-11-09T00:00:00'
+  forecast_date: '2010-12-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.2
+      hold: 0.6
+      hike: 0.2
+  metadata:
+    n_train: 15
+    model: class_frequency_fallback
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.041068'
+  as_of: '2010-12-21T00:00:00'
+  forecast_date: '2011-01-18T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.044344142451331156
+      hold: 0.5289529284849733
+      hike: 0.42670292906369545
+  metadata:
+    n_train: 16
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6299999999999999
+      fed_boc_2yr_spread: -1.0099999999999998
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.5
+      unemployment_momentum: -0.6999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.143030'
+  as_of: '2011-02-01T00:00:00'
+  forecast_date: '2011-03-01T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.02486699925405534
+      hold: 0.6433721878371247
+      hike: 0.3317608129088201
+  metadata:
+    n_train: 17
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6699999999999999
+      fed_boc_2yr_spread: -1.0899999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.250824'
+  as_of: '2011-03-15T00:00:00'
+  forecast_date: '2011-04-12T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.017277707199695715
+      hold: 0.7448330838246797
+      hike: 0.23788920897562463
+  metadata:
+    n_train: 18
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6699999999999999
+      fed_boc_2yr_spread: -1.06
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.7
+      unemployment_momentum: -0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.358016'
+  as_of: '2011-05-03T00:00:00'
+  forecast_date: '2011-05-31T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.045970662385985225
+      hold: 0.6923736069340116
+      hike: 0.2616557306800032
+  metadata:
+    n_train: 19
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.7
+      fed_boc_2yr_spread: -1.0899999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: -0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.469062'
+  as_of: '2011-06-21T00:00:00'
+  forecast_date: '2011-07-19T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.036446272347406446
+      hold: 0.8285335868031253
+      hike: 0.1350201408494683
+  metadata:
+    n_train: 20
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.51
+      fed_boc_2yr_spread: -1.13
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.5
+      unemployment_momentum: -0.4999999999999991
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.584050'
+  as_of: '2011-08-10T00:00:00'
+  forecast_date: '2011-09-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.08940859888184823
+      hold: 0.8986802340123325
+      hike: 0.011911167105819196
+  metadata:
+    n_train: 21
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.18000000000000005
+      fed_boc_2yr_spread: -0.6299999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -0.7999999999999989
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.702943'
+  as_of: '2011-09-27T00:00:00'
+  forecast_date: '2011-10-25T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.12305434654250677
+      hold: 0.8584991103731513
+      hike: 0.018446543084342012
+  metadata:
+    n_train: 22
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.06999999999999995
+      fed_boc_2yr_spread: -0.68
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.7999999999999989
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.825127'
+  as_of: '2011-11-08T00:00:00'
+  forecast_date: '2011-12-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06219228545745132
+      hold: 0.9237838250679492
+      hike: 0.014023889474599526
+  metadata:
+    n_train: 23
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.06000000000000005
+      fed_boc_2yr_spread: -0.69
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.5999999999999996
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:31.949817'
+  as_of: '2011-12-20T00:00:00'
+  forecast_date: '2012-01-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.02646982052899111
+      hold: 0.9664679623037912
+      hike: 0.0070622171672178454
+  metadata:
+    n_train: 24
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.16000000000000003
+      fed_boc_2yr_spread: -0.6
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.3000000000000007
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.077703'
+  as_of: '2012-02-09T00:00:00'
+  forecast_date: '2012-03-08T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.01848563004929642
+      hold: 0.9663735432643478
+      hike: 0.015140826686355826
+  metadata:
+    n_train: 25
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07000000000000006
+      fed_boc_2yr_spread: -0.8
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.209422'
+  as_of: '2012-03-20T00:00:00'
+  forecast_date: '2012-04-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.037610444725774364
+      hold: 0.9316160993194827
+      hike: 0.030773455954742956
+  metadata:
+    n_train: 26
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.29000000000000004
+      fed_boc_2yr_spread: -0.9
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.343619'
+  as_of: '2012-05-08T00:00:00'
+  forecast_date: '2012-06-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.014528348263157622
+      hold: 0.9506422094522571
+      hike: 0.0348294422845854
+  metadata:
+    n_train: 27
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.27
+      fed_boc_2yr_spread: -1.0
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.480801'
+  as_of: '2012-06-19T00:00:00'
+  forecast_date: '2012-07-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.020804434540345352
+      hold: 0.9721917284878111
+      hike: 0.007003836971843337
+  metadata:
+    n_train: 28
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.020000000000000018
+      fed_boc_2yr_spread: -0.69
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.10000000000000053
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.619848'
+  as_of: '2012-08-08T00:00:00'
+  forecast_date: '2012-09-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0018799420292638846
+      hold: 0.9799193237650108
+      hike: 0.01820073420572522
+  metadata:
+    n_train: 29
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.16999999999999993
+      fed_boc_2yr_spread: -0.8999999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.5
+      unemployment_momentum: -0.10000000000000053
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.765246'
+  as_of: '2012-09-25T00:00:00'
+  forecast_date: '2012-10-23T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0016889629835035666
+      hold: 0.9853498004935065
+      hike: 0.01296123652298974
+  metadata:
+    n_train: 30
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1200000000000001
+      fed_boc_2yr_spread: -0.8500000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.5
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:32.911785'
+  as_of: '2012-11-06T00:00:00'
+  forecast_date: '2012-12-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.001128862513275862
+      hold: 0.9865072671112007
+      hike: 0.012363870375523429
+  metadata:
+    n_train: 31
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07000000000000006
+      fed_boc_2yr_spread: -0.79
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.7
+      unemployment_momentum: -0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.060692'
+  as_of: '2012-12-26T00:00:00'
+  forecast_date: '2013-01-23T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0009489716090564952
+      hold: 0.9818807827184797
+      hike: 0.017170245672463863
+  metadata:
+    n_train: 32
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1200000000000001
+      fed_boc_2yr_spread: -0.8600000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.8
+      unemployment_momentum: -0.1999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.211041'
+  as_of: '2013-02-06T00:00:00'
+  forecast_date: '2013-03-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0014885890697469543
+      hold: 0.9695349902795362
+      hike: 0.02897642065071672
+  metadata:
+    n_train: 33
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.16999999999999993
+      fed_boc_2yr_spread: -0.8999999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.8
+      unemployment_momentum: -0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.363413'
+  as_of: '2013-03-20T00:00:00'
+  forecast_date: '2013-04-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.00031881197456195735
+      hold: 0.9900136992814704
+      hike: 0.009667488743967665
+  metadata:
+    n_train: 34
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.030000000000000027
+      fed_boc_2yr_spread: -0.73
+      rate_momentum: 0.0
+      cpi_median_gap: -0.6000000000000001
+      cpi_trim_gap: -1.0
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.519640'
+  as_of: '2013-05-01T00:00:00'
+  forecast_date: '2013-05-29T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0008202033137336828
+      hold: 0.9930680517494803
+      hike: 0.006111744936786114
+  metadata:
+    n_train: 35
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.07999999999999996
+      fed_boc_2yr_spread: -0.7000000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.8
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.679175'
+  as_of: '2013-06-19T00:00:00'
+  forecast_date: '2013-07-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0004363046982040313
+      hold: 0.9816651518201631
+      hike: 0.0178985434816328
+  metadata:
+    n_train: 36
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1100000000000001
+      fed_boc_2yr_spread: -0.8400000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.5
+      cpi_trim_gap: -1.1
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:33.842274'
+  as_of: '2013-08-07T00:00:00'
+  forecast_date: '2013-09-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.002285617769652506
+      hold: 0.9851028018370356
+      hike: 0.012611580393311969
+  metadata:
+    n_train: 37
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1499999999999999
+      fed_boc_2yr_spread: -0.8299999999999998
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.7
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.009052'
+  as_of: '2013-09-25T00:00:00'
+  forecast_date: '2013-10-23T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0008092069826327087
+      hold: 0.9833682565141447
+      hike: 0.015822536503222476
+  metadata:
+    n_train: 38
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.20999999999999996
+      fed_boc_2yr_spread: -0.86
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.8999999999999999
+      unemployment_momentum: -0.10000000000000053
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.178905'
+  as_of: '2013-11-06T00:00:00'
+  forecast_date: '2013-12-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0010451463835460118
+      hold: 0.9890200587549595
+      hike: 0.009934794861494447
+  metadata:
+    n_train: 39
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1299999999999999
+      fed_boc_2yr_spread: -0.8099999999999998
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.7
+      unemployment_momentum: -0.10000000000000053
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.349495'
+  as_of: '2013-12-25T00:00:00'
+  forecast_date: '2014-01-22T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0007461195316225873
+      hold: 0.9894558865880335
+      hike: 0.009797993880343945
+  metadata:
+    n_train: 40
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1299999999999999
+      fed_boc_2yr_spread: -0.7499999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.5
+      cpi_trim_gap: -0.7
+      unemployment_momentum: -0.3000000000000007
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.524276'
+  as_of: '2014-02-05T00:00:00'
+  forecast_date: '2014-03-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0009595599584287545
+      hold: 0.9959964405067947
+      hike: 0.003043999534776573
+  metadata:
+    n_train: 41
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.040000000000000036
+      fed_boc_2yr_spread: -0.6499999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.703080'
+  as_of: '2014-03-19T00:00:00'
+  forecast_date: '2014-04-16T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0016306797956467847
+      hold: 0.9948873794313943
+      hike: 0.00348194077295886
+  metadata:
+    n_train: 42
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.0
+      fed_boc_2yr_spread: -0.64
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.5
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:34.883799'
+  as_of: '2014-05-07T00:00:00'
+  forecast_date: '2014-06-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0012775882495965974
+      hold: 0.9934269271590067
+      hike: 0.0052954845913967446
+  metadata:
+    n_train: 43
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07000000000000006
+      fed_boc_2yr_spread: -0.6400000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.5
+      unemployment_momentum: -0.10000000000000053
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:35.193068'
+  as_of: '2014-06-18T00:00:00'
+  forecast_date: '2014-07-16T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0020492294755167554
+      hold: 0.9935373961849364
+      hike: 0.004413374339546852
+  metadata:
+    n_train: 44
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1100000000000001
+      fed_boc_2yr_spread: -0.6000000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:35.382065'
+  as_of: '2014-08-06T00:00:00'
+  forecast_date: '2014-09-03T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0042910363044253415
+      hold: 0.9903766849641324
+      hike: 0.005332278731442274
+  metadata:
+    n_train: 45
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07000000000000006
+      fed_boc_2yr_spread: -0.6000000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:35.573047'
+  as_of: '2014-09-24T00:00:00'
+  forecast_date: '2014-10-22T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0025674402349282815
+      hold: 0.9913892088355243
+      hike: 0.006043350929547442
+  metadata:
+    n_train: 46
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.1200000000000001
+      fed_boc_2yr_spread: -0.5500000000000002
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: -0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:35.766814'
+  as_of: '2014-11-05T00:00:00'
+  forecast_date: '2014-12-03T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.003316971018277587
+      hold: 0.9926657362440505
+      hike: 0.004017292737671949
+  metadata:
+    n_train: 47
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.020000000000000018
+      fed_boc_2yr_spread: -0.45999999999999996
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:35.965406'
+  as_of: '2014-12-24T00:00:00'
+  forecast_date: '2015-01-21T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0032848603965990914
+      hold: 0.9933099872875281
+      hike: 0.0034051523158727887
+  metadata:
+    n_train: 48
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.050000000000000044
+      fed_boc_2yr_spread: -0.32000000000000006
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: -0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:36.166592'
+  as_of: '2015-02-04T00:00:00'
+  forecast_date: '2015-03-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.5956921989762923
+      hold: 0.40369476610763705
+      hike: 0.0006130349160705442
+  metadata:
+    n_train: 49
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.32
+      fed_boc_2yr_spread: 0.09000000000000002
+      rate_momentum: -0.25
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:36.367442'
+  as_of: '2015-03-18T00:00:00'
+  forecast_date: '2015-04-15T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.23213552203236676
+      hold: 0.7670483189029548
+      hike: 0.0008161590646783771
+  metadata:
+    n_train: 50
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.20999999999999996
+      fed_boc_2yr_spread: 0.15999999999999992
+      rate_momentum: -0.25
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: -0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:36.570299'
+  as_of: '2015-04-29T00:00:00'
+  forecast_date: '2015-05-27T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.04722495192118091
+      hold: 0.9499256827051991
+      hike: 0.0028493653736200507
+  metadata:
+    n_train: 51
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.07999999999999996
+      fed_boc_2yr_spread: -0.10999999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: -0.1999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:36.777715'
+  as_of: '2015-06-17T00:00:00'
+  forecast_date: '2015-07-15T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.030004602062346727
+      hold: 0.9673929048059224
+      hike: 0.002602493131730811
+  metadata:
+    n_train: 52
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.14
+      fed_boc_2yr_spread: 0.09999999999999998
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:36.990060'
+  as_of: '2015-08-12T00:00:00'
+  forecast_date: '2015-09-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.28361891474853235
+      hold: 0.7150981949941587
+      hike: 0.001282890257308991
+  metadata:
+    n_train: 53
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.08000000000000002
+      fed_boc_2yr_spread: 0.26000000000000006
+      rate_momentum: -0.25
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.5
+      unemployment_momentum: -0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:37.204647'
+  as_of: '2015-09-23T00:00:00'
+  forecast_date: '2015-10-21T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.23638949870148318
+      hold: 0.7623540425847398
+      hike: 0.0012564587137768755
+  metadata:
+    n_train: 54
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.0
+      fed_boc_2yr_spread: 0.18999999999999995
+      rate_momentum: -0.25
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: 0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:37.423450'
+  as_of: '2015-11-04T00:00:00'
+  forecast_date: '2015-12-02T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.11693223504864039
+      hold: 0.8797846923385825
+      hike: 0.0032830726127772024
+  metadata:
+    n_train: 55
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.08999999999999997
+      fed_boc_2yr_spread: 0.21000000000000008
+      rate_momentum: 0.0
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:37.645992'
+  as_of: '2015-12-23T00:00:00'
+  forecast_date: '2016-01-20T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.2402370791995722
+      hold: 0.7579518276576908
+      hike: 0.00181109314273703
+  metadata:
+    n_train: 56
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.020000000000000018
+      fed_boc_2yr_spread: 0.47
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:37.868197'
+  as_of: '2016-02-10T00:00:00'
+  forecast_date: '2016-03-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.1572642048438156
+      hold: 0.8418025925171343
+      hike: 0.0009332026390501057
+  metadata:
+    n_train: 57
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.15000000000000002
+      fed_boc_2yr_spread: 0.33999999999999997
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 0.40000000000000036
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:38.097117'
+  as_of: '2016-03-16T00:00:00'
+  forecast_date: '2016-04-13T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.1494884612801778
+      hold: 0.8485052694612277
+      hike: 0.00200626925859443
+  metadata:
+    n_train: 58
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07999999999999996
+      fed_boc_2yr_spread: 0.4
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:38.322400'
+  as_of: '2016-04-27T00:00:00'
+  forecast_date: '2016-05-25T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.10809686402136708
+      hold: 0.8882331245108354
+      hike: 0.0036700114677976274
+  metadata:
+    n_train: 59
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.19999999999999996
+      fed_boc_2yr_spread: 0.16000000000000003
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:38.552167'
+  as_of: '2016-06-15T00:00:00'
+  forecast_date: '2016-07-13T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.13750995632411558
+      hold: 0.8607733470379565
+      hike: 0.0017166966379278418
+  metadata:
+    n_train: 60
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.0
+      fed_boc_2yr_spread: 0.24
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: 0.1999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:38.783437'
+  as_of: '2016-08-10T00:00:00'
+  forecast_date: '2016-09-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.14427686777108256
+      hold: 0.8537846342972776
+      hike: 0.0019384979316398974
+  metadata:
+    n_train: 61
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.0
+      fed_boc_2yr_spread: 0.20999999999999996
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:39.021814'
+  as_of: '2016-09-21T00:00:00'
+  forecast_date: '2016-10-19T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.12140861540654525
+      hold: 0.8753072459832679
+      hike: 0.0032841386101867946
+  metadata:
+    n_train: 62
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.06999999999999995
+      fed_boc_2yr_spread: 0.22000000000000008
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.1999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:39.260623'
+  as_of: '2016-11-09T00:00:00'
+  forecast_date: '2016-12-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.10047843430986773
+      hold: 0.8965153061277656
+      hike: 0.0030062595623666878
+  metadata:
+    n_train: 63
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07999999999999996
+      fed_boc_2yr_spread: 0.29000000000000004
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:39.496313'
+  as_of: '2016-12-21T00:00:00'
+  forecast_date: '2017-01-18T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.13020398134095615
+      hold: 0.8619269538176872
+      hike: 0.007869064841356558
+  metadata:
+    n_train: 64
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.31999999999999995
+      fed_boc_2yr_spread: 0.43000000000000005
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:39.734252'
+  as_of: '2017-02-01T00:00:00'
+  forecast_date: '2017-03-01T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06738637889312972
+      hold: 0.9252892700975084
+      hike: 0.007324351009362083
+  metadata:
+    n_train: 65
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.27
+      fed_boc_2yr_spread: 0.41999999999999993
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: -0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:39.974611'
+  as_of: '2017-03-15T00:00:00'
+  forecast_date: '2017-04-12T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.08170069413774272
+      hold: 0.904727387540187
+      hike: 0.013571918322070128
+  metadata:
+    n_train: 66
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.35
+      fed_boc_2yr_spread: 0.5499999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: -0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:40.228577'
+  as_of: '2017-04-26T00:00:00'
+  forecast_date: '2017-05-24T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.04159285064816107
+      hold: 0.9502645586101983
+      hike: 0.008142590741640575
+  metadata:
+    n_train: 67
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.26
+      fed_boc_2yr_spread: 0.53
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:40.491716'
+  as_of: '2017-06-14T00:00:00'
+  forecast_date: '2017-07-12T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.035535589114381635
+      hold: 0.9508991452849241
+      hike: 0.013565265600694154
+  metadata:
+    n_train: 68
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.41000000000000003
+      fed_boc_2yr_spread: 0.46999999999999986
+      rate_momentum: 0.0
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:40.845431'
+  as_of: '2017-08-09T00:00:00'
+  forecast_date: '2017-09-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.006246907535617466
+      hold: 0.49402180360730097
+      hike: 0.49973128885708157
+  metadata:
+    n_train: 69
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.5
+      fed_boc_2yr_spread: 0.1100000000000001
+      rate_momentum: 0.25
+      cpi_median_gap: -0.5
+      cpi_trim_gap: -0.8
+      unemployment_momentum: -0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:41.106841'
+  as_of: '2017-09-27T00:00:00'
+  forecast_date: '2017-10-25T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.001790892205564032
+      hold: 0.3105221140212413
+      hike: 0.6876869937731946
+  metadata:
+    n_train: 70
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6000000000000001
+      fed_boc_2yr_spread: -0.15000000000000013
+      rate_momentum: 0.5
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:41.373992'
+  as_of: '2017-11-08T00:00:00'
+  forecast_date: '2017-12-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.011678249298377906
+      hold: 0.6967661796385238
+      hike: 0.29155557106309826
+  metadata:
+    n_train: 71
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.3999999999999999
+      fed_boc_2yr_spread: 0.22999999999999998
+      rate_momentum: 0.25
+      cpi_median_gap: -0.3999999999999999
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:41.643597'
+  as_of: '2017-12-20T00:00:00'
+  forecast_date: '2018-01-17T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.022582290403585115
+      hold: 0.6800498585461429
+      hike: 0.2973678510502719
+  metadata:
+    n_train: 72
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6000000000000001
+      fed_boc_2yr_spread: 0.27
+      rate_momentum: 0.0
+      cpi_median_gap: -0.5
+      cpi_trim_gap: -0.6000000000000001
+      unemployment_momentum: -0.5999999999999996
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:41.919732'
+  as_of: '2018-02-07T00:00:00'
+  forecast_date: '2018-03-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.015294653356318884
+      hold: 0.4550399333355647
+      hike: 0.5296654133081165
+  metadata:
+    n_train: 73
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.5800000000000001
+      fed_boc_2yr_spread: 0.27
+      rate_momentum: 0.25
+      cpi_median_gap: -0.30000000000000004
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -1.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:42.199092'
+  as_of: '2018-03-21T00:00:00'
+  forecast_date: '2018-04-18T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.019800460627541316
+      hold: 0.705211317389345
+      hike: 0.2749882219831137
+  metadata:
+    n_train: 74
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.56
+      fed_boc_2yr_spread: 0.5299999999999998
+      rate_momentum: 0.25
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: -0.5999999999999996
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:42.480251'
+  as_of: '2018-05-02T00:00:00'
+  forecast_date: '2018-05-30T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.05820879845607619
+      hold: 0.7103005164035399
+      hike: 0.23149068514038387
+  metadata:
+    n_train: 75
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6799999999999999
+      fed_boc_2yr_spread: 0.5700000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:42.765256'
+  as_of: '2018-06-13T00:00:00'
+  forecast_date: '2018-07-11T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06196453777192055
+      hold: 0.807751715587108
+      hike: 0.13028374664097145
+  metadata:
+    n_train: 76
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6499999999999999
+      fed_boc_2yr_spread: 0.6400000000000001
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.6999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:43.051664'
+  as_of: '2018-08-08T00:00:00'
+  forecast_date: '2018-09-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.017456067030303196
+      hold: 0.7724782676425627
+      hike: 0.21006566532713405
+  metadata:
+    n_train: 77
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6299999999999999
+      fed_boc_2yr_spread: 0.5500000000000003
+      rate_momentum: 0.25
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.39999999999999947
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:43.336061'
+  as_of: '2018-09-26T00:00:00'
+  forecast_date: '2018-10-24T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.016994657697680698
+      hold: 0.8504521066200393
+      hike: 0.13255323568228003
+  metadata:
+    n_train: 78
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.7000000000000002
+      fed_boc_2yr_spread: 0.6299999999999999
+      rate_momentum: 0.25
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:43.630032'
+  as_of: '2018-11-07T00:00:00'
+  forecast_date: '2018-12-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.014909374391943193
+      hold: 0.5860062636091075
+      hike: 0.3990843619989494
+  metadata:
+    n_train: 79
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6000000000000001
+      fed_boc_2yr_spread: 0.5800000000000001
+      rate_momentum: 0.25
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:43.916182'
+  as_of: '2018-12-12T00:00:00'
+  forecast_date: '2019-01-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.026482860268072575
+      hold: 0.8553442042829403
+      hike: 0.11817293544898726
+  metadata:
+    n_train: 80
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.2799999999999998
+      fed_boc_2yr_spread: 0.75
+      rate_momentum: 0.25
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:44.205770'
+  as_of: '2019-02-06T00:00:00'
+  forecast_date: '2019-03-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06168162912270285
+      hold: 0.9059198709218046
+      hike: 0.03239849995549258
+  metadata:
+    n_train: 81
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.08000000000000007
+      fed_boc_2yr_spread: 0.6999999999999997
+      rate_momentum: 0.0
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:44.495985'
+  as_of: '2019-03-27T00:00:00'
+  forecast_date: '2019-04-24T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.08227470145756657
+      hold: 0.9108310247753576
+      hike: 0.00689427376707594
+  metadata:
+    n_train: 82
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.25
+      fed_boc_2yr_spread: 0.7400000000000002
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:44.787139'
+  as_of: '2019-05-01T00:00:00'
+  forecast_date: '2019-05-29T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.07604029859339802
+      hold: 0.9193381608856034
+      hike: 0.004621540520998728
+  metadata:
+    n_train: 83
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.18999999999999995
+      fed_boc_2yr_spread: 0.71
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.20000000000000018
+      unemployment_momentum: -0.09999999999999964
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:45.082618'
+  as_of: '2019-06-12T00:00:00'
+  forecast_date: '2019-07-10T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06494611371462118
+      hold: 0.929695278077873
+      hike: 0.005358608207505793
+  metadata:
+    n_train: 84
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.27
+      fed_boc_2yr_spread: 0.44999999999999996
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.40000000000000036
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:45.386146'
+  as_of: '2019-08-07T00:00:00'
+  forecast_date: '2019-09-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0589562168777389
+      hold: 0.939773619806802
+      hike: 0.001270163315459044
+  metadata:
+    n_train: 85
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.4099999999999999
+      fed_boc_2yr_spread: 0.26
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:45.685895'
+  as_of: '2019-10-02T00:00:00'
+  forecast_date: '2019-10-30T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.04262890023068814
+      hold: 0.954872539235321
+      hike: 0.002498560533991003
+  metadata:
+    n_train: 86
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.21999999999999997
+      fed_boc_2yr_spread: 0.030000000000000027
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: 0.0
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:45.990406'
+  as_of: '2019-11-06T00:00:00'
+  forecast_date: '2019-12-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.03831186872290699
+      hold: 0.9594411455686134
+      hike: 0.002246985708479626
+  metadata:
+    n_train: 87
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.1200000000000001
+      fed_boc_2yr_spread: 0.0
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:46.308022'
+  as_of: '2019-12-25T00:00:00'
+  forecast_date: '2020-01-22T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.03281035382565641
+      hold: 0.9658756703110571
+      hike: 0.0013139758632864144
+  metadata:
+    n_train: 88
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.08000000000000007
+      fed_boc_2yr_spread: -0.04999999999999982
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.20000000000000018
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:46.632234'
+  as_of: '2020-02-05T00:00:00'
+  forecast_date: '2020-03-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.03939958026539144
+      hold: 0.9593714537771134
+      hike: 0.001228965957495287
+  metadata:
+    n_train: 89
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.28
+      fed_boc_2yr_spread: -0.06000000000000005
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.10000000000000009
+      unemployment_momentum: -0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:46.958430'
+  as_of: '2020-03-18T00:00:00'
+  forecast_date: '2020-04-15T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.8002613310530055
+      hold: 0.1995913259358911
+      hike: 0.00014734301110342013
+  metadata:
+    n_train: 90
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.12
+      fed_boc_2yr_spread: -0.16000000000000003
+      rate_momentum: -1.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: 0.0
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:47.379600'
+  as_of: '2020-05-06T00:00:00'
+  forecast_date: '2020-06-03T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.16095315154529583
+      hold: 0.839046841787541
+      hike: 6.6671631735980676e-09
+  metadata:
+    n_train: 91
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.06
+      fed_boc_2yr_spread: -0.12
+      rate_momentum: -1.5
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 7.999999999999999
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:47.709362'
+  as_of: '2020-06-17T00:00:00'
+  forecast_date: '2020-07-15T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0033024547899563753
+      hold: 0.9966974532730318
+      hike: 9.193701187037699e-08
+  metadata:
+    n_train: 92
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.03999999999999998
+      fed_boc_2yr_spread: -0.07999999999999999
+      rate_momentum: -0.5
+      cpi_median_gap: -0.10000000000000009
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 8.7
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:48.047463'
+  as_of: '2020-08-12T00:00:00'
+  forecast_date: '2020-09-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.003460261359746269
+      hold: 0.9964945475627838
+      hike: 4.519107746999684e-05
+  metadata:
+    n_train: 93
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.030000000000000027
+      fed_boc_2yr_spread: -0.12000000000000002
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: 5.2
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:48.389535'
+  as_of: '2020-09-30T00:00:00'
+  forecast_date: '2020-10-28T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.005094906637577773
+      hold: 0.9947768629822574
+      hike: 0.00012823038016467135
+  metadata:
+    n_train: 94
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.010000000000000009
+      fed_boc_2yr_spread: -0.13
+      rate_momentum: 0.0
+      cpi_median_gap: -0.19999999999999996
+      cpi_trim_gap: -0.3999999999999999
+      unemployment_momentum: 4.3999999999999995
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:48.735128'
+  as_of: '2020-11-11T00:00:00'
+  forecast_date: '2020-12-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.01608205263245475
+      hold: 0.9836023747343462
+      hike: 0.00031557263319914917
+  metadata:
+    n_train: 95
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.020000000000000018
+      fed_boc_2yr_spread: -0.08000000000000002
+      rate_momentum: 0.0
+      cpi_median_gap: 0.0
+      cpi_trim_gap: -0.30000000000000004
+      unemployment_momentum: 3.4000000000000004
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:49.080784'
+  as_of: '2020-12-23T00:00:00'
+  forecast_date: '2021-01-20T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.02947902950046788
+      hold: 0.9701873125373367
+      hike: 0.00033365796219529193
+  metadata:
+    n_train: 96
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.03
+      fed_boc_2yr_spread: -0.09
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: -0.10000000000000009
+      unemployment_momentum: 2.6999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:49.422205'
+  as_of: '2021-02-10T00:00:00'
+  forecast_date: '2021-03-10T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.018319571728274926
+      hold: 0.9815459498133825
+      hike: 0.00013447845834271003
+  metadata:
+    n_train: 97
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.06
+      fed_boc_2yr_spread: -0.08
+      rate_momentum: 0.0
+      cpi_median_gap: 0.10000000000000009
+      cpi_trim_gap: -0.19999999999999996
+      unemployment_momentum: 3.6999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:49.772293'
+  as_of: '2021-03-24T00:00:00'
+  forecast_date: '2021-04-21T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.036250956898762565
+      hold: 0.963466073863647
+      hike: 0.0002829692375905182
+  metadata:
+    n_train: 98
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.0
+      fed_boc_2yr_spread: -0.1
+      rate_momentum: 0.0
+      cpi_median_gap: 0.20000000000000018
+      cpi_trim_gap: 0.0
+      unemployment_momentum: 2.7
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:50.128217'
+  as_of: '2021-05-12T00:00:00'
+  forecast_date: '2021-06-09T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.6349775002550574
+      hold: 0.22865620586689317
+      hike: 0.1363662938780494
+  metadata:
+    n_train: 99
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.04999999999999999
+      fed_boc_2yr_spread: -0.13999999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: 0.2999999999999998
+      cpi_trim_gap: 0.20000000000000018
+      unemployment_momentum: -5.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:50.487706'
+  as_of: '2021-06-16T00:00:00'
+  forecast_date: '2021-07-14T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.3131354177239316
+      hold: 0.5933658884606691
+      hike: 0.09349869381539935
+  metadata:
+    n_train: 100
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.07
+      fed_boc_2yr_spread: -0.16
+      rate_momentum: 0.0
+      cpi_median_gap: 0.2999999999999998
+      cpi_trim_gap: 0.3999999999999999
+      unemployment_momentum: -5.899999999999999
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:50.848541'
+  as_of: '2021-08-11T00:00:00'
+  forecast_date: '2021-09-08T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.24823250176961303
+      hold: 0.7462324056010409
+      hike: 0.005535092629346064
+  metadata:
+    n_train: 101
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.22999999999999998
+      fed_boc_2yr_spread: -0.24
+      rate_momentum: 0.0
+      cpi_median_gap: 0.7000000000000002
+      cpi_trim_gap: 0.7999999999999998
+      unemployment_momentum: -3.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:51.215107'
+  as_of: '2021-09-29T00:00:00'
+  forecast_date: '2021-10-27T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.19273633311125324
+      hold: 0.8061635796745218
+      hike: 0.0011000872142251036
+  metadata:
+    n_train: 102
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.25
+      fed_boc_2yr_spread: -0.19
+      rate_momentum: 0.0
+      cpi_median_gap: 1.0
+      cpi_trim_gap: 1.4
+      unemployment_momentum: -3.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:51.584781'
+  as_of: '2021-11-10T00:00:00'
+  forecast_date: '2021-12-08T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.09571925749493071
+      hold: 0.902551837876275
+      hike: 0.0017289046287941822
+  metadata:
+    n_train: 103
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.67
+      fed_boc_2yr_spread: -0.51
+      rate_momentum: 0.0
+      cpi_median_gap: 1.1
+      cpi_trim_gap: 1.5
+      unemployment_momentum: -2.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:51.955682'
+  as_of: '2021-12-29T00:00:00'
+  forecast_date: '2022-01-26T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.07424268860234882
+      hold: 0.9224455813661675
+      hike: 0.003311730031483531
+  metadata:
+    n_train: 104
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.73
+      fed_boc_2yr_spread: -0.24
+      rate_momentum: 0.0
+      cpi_median_gap: 1.1
+      cpi_trim_gap: 1.6
+      unemployment_momentum: -2.5
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:52.327347'
+  as_of: '2022-02-02T00:00:00'
+  forecast_date: '2022-03-02T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.06472348961005267
+      hold: 0.9297018829232558
+      hike: 0.00557462746669139
+  metadata:
+    n_train: 105
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 1.03
+      fed_boc_2yr_spread: -0.10000000000000009
+      rate_momentum: 0.0
+      cpi_median_gap: 1.4
+      cpi_trim_gap: 2.0
+      unemployment_momentum: -2.799999999999999
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:52.705467'
+  as_of: '2022-03-16T00:00:00'
+  forecast_date: '2022-04-13T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.006277462790241052
+      hold: 0.15021961651781765
+      hike: 0.8435029206919413
+  metadata:
+    n_train: 106
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 1.3
+      fed_boc_2yr_spread: 0.050000000000000044
+      rate_momentum: 0.25
+      cpi_median_gap: 1.7000000000000002
+      cpi_trim_gap: 2.2
+      unemployment_momentum: -3.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:53.087718'
+  as_of: '2022-05-04T00:00:00'
+  forecast_date: '2022-06-01T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.00012414824462641237
+      hold: 0.010603380575296901
+      hike: 0.9892724711800768
+  metadata:
+    n_train: 107
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 1.71
+      fed_boc_2yr_spread: 0.06999999999999984
+      rate_momentum: 0.75
+      cpi_median_gap: 2.4000000000000004
+      cpi_trim_gap: 3.0
+      unemployment_momentum: -2.799999999999999
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:53.471798'
+  as_of: '2022-06-15T00:00:00'
+  forecast_date: '2022-07-13T00:00:00'
+  payload:
+    probabilities:
+      cut: 1.582143091724923e-05
+      hold: 0.0021006719089851807
+      hike: 0.9978835066600975
+  metadata:
+    n_train: 108
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 1.96
+      fed_boc_2yr_spread: -0.009999999999999787
+      rate_momentum: 1.0
+      cpi_median_gap: 2.9000000000000004
+      cpi_trim_gap: 3.3
+      unemployment_momentum: -3.1000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:53.854766'
+  as_of: '2022-08-10T00:00:00'
+  forecast_date: '2022-09-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0004642276818758921
+      hold: 0.1236445263234145
+      hike: 0.8758912459947096
+  metadata:
+    n_train: 109
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.7799999999999998
+      fed_boc_2yr_spread: 0.0
+      rate_momentum: 1.5
+      cpi_median_gap: 3.2
+      cpi_trim_gap: 3.7
+      unemployment_momentum: -2.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:54.239115'
+  as_of: '2022-09-28T00:00:00'
+  forecast_date: '2022-10-26T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.00010888900926211247
+      hold: 0.04811088036240709
+      hike: 0.9517802306283307
+  metadata:
+    n_train: 110
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.6400000000000001
+      fed_boc_2yr_spread: 0.4099999999999997
+      rate_momentum: 1.75
+      cpi_median_gap: 3.0999999999999996
+      cpi_trim_gap: 3.4000000000000004
+      unemployment_momentum: -1.8999999999999995
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:54.629812'
+  as_of: '2022-11-09T00:00:00'
+  forecast_date: '2022-12-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.00390176453707952
+      hold: 0.29535893757951015
+      hike: 0.7007392978834103
+  metadata:
+    n_train: 111
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: 0.40000000000000036
+      fed_boc_2yr_spread: 0.5199999999999996
+      rate_momentum: 1.25
+      cpi_median_gap: 3.2
+      cpi_trim_gap: 3.5
+      unemployment_momentum: -1.4000000000000004
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:55.108429'
+  as_of: '2022-12-28T00:00:00'
+  forecast_date: '2023-01-25T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.0437860277795686
+      hold: 0.8274065553479989
+      hike: 0.12880741687243244
+  metadata:
+    n_train: 112
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.31999999999999984
+      fed_boc_2yr_spread: 0.3900000000000001
+      rate_momentum: 1.0
+      cpi_median_gap: 3.3
+      cpi_trim_gap: 3.4000000000000004
+      unemployment_momentum: -1.0999999999999996
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:55.508309'
+  as_of: '2023-02-08T00:00:00'
+  forecast_date: '2023-03-08T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.09429776266469746
+      hold: 0.5955911325501453
+      hike: 0.31011110478515724
+  metadata:
+    n_train: 113
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.54
+      fed_boc_2yr_spread: 0.5099999999999998
+      rate_momentum: 0.75
+      cpi_median_gap: 3.2
+      cpi_trim_gap: 3.2
+      unemployment_momentum: -1.3000000000000007
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:55.906742'
+  as_of: '2023-03-15T00:00:00'
+  forecast_date: '2023-04-12T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.1849259188562587
+      hold: 0.8033970981545138
+      hike: 0.011676982989227543
+  metadata:
+    n_train: 114
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.7799999999999998
+      fed_boc_2yr_spread: 0.48
+      rate_momentum: 0.25
+      cpi_median_gap: 2.9000000000000004
+      cpi_trim_gap: 3.0
+      unemployment_momentum: -0.2999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:56.311208'
+  as_of: '2023-05-10T00:00:00'
+  forecast_date: '2023-06-07T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.14922726849497067
+      hold: 0.8465583273822291
+      hike: 0.004214404122800222
+  metadata:
+    n_train: 115
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.73
+      fed_boc_2yr_spread: 0.23999999999999977
+      rate_momentum: 0.0
+      cpi_median_gap: 2.4000000000000004
+      cpi_trim_gap: 2.2
+      unemployment_momentum: -0.3000000000000007
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:56.718162'
+  as_of: '2023-06-14T00:00:00'
+  forecast_date: '2023-07-12T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.036486698004185414
+      hold: 0.8048676773667508
+      hike: 0.15864562462906373
+  metadata:
+    n_train: 116
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.1900000000000004
+      fed_boc_2yr_spread: 0.11000000000000032
+      rate_momentum: 0.25
+      cpi_median_gap: 2.2
+      cpi_trim_gap: 2.0999999999999996
+      unemployment_momentum: 0.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:57.129863'
+  as_of: '2023-08-09T00:00:00'
+  forecast_date: '2023-09-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.016441022309737808
+      hold: 0.8123808070325471
+      hike: 0.171178170657715
+  metadata:
+    n_train: 117
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.46999999999999975
+      fed_boc_2yr_spread: 0.20999999999999996
+      rate_momentum: 0.5
+      cpi_median_gap: 1.7999999999999998
+      cpi_trim_gap: 1.6
+      unemployment_momentum: 0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:57.544465'
+  as_of: '2023-09-27T00:00:00'
+  forecast_date: '2023-10-25T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.02655617943723205
+      hold: 0.7366199551462304
+      hike: 0.23682386541653772
+  metadata:
+    n_train: 118
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.07000000000000028
+      fed_boc_2yr_spread: 0.11000000000000032
+      rate_momentum: 0.25
+      cpi_median_gap: 1.9
+      cpi_trim_gap: 1.7999999999999998
+      unemployment_momentum: 0.20000000000000018
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:57.952841'
+  as_of: '2023-11-08T00:00:00'
+  forecast_date: '2023-12-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.07593867960417046
+      hold: 0.8684837387088324
+      hike: 0.05557758168699723
+  metadata:
+    n_train: 119
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.5599999999999996
+      fed_boc_2yr_spread: 0.46999999999999975
+      rate_momentum: 0.0
+      cpi_median_gap: 1.7999999999999998
+      cpi_trim_gap: 1.5
+      unemployment_momentum: 0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:58.373643'
+  as_of: '2023-12-27T00:00:00'
+  forecast_date: '2024-01-24T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.07251854813027325
+      hold: 0.915346523823125
+      hike: 0.012134928046601741
+  metadata:
+    n_train: 120
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -1.0099999999999998
+      fed_boc_2yr_spread: 0.2699999999999996
+      rate_momentum: 0.0
+      cpi_median_gap: 1.7000000000000002
+      cpi_trim_gap: 1.5
+      unemployment_momentum: 0.7999999999999998
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:58.788803'
+  as_of: '2024-02-07T00:00:00'
+  forecast_date: '2024-03-06T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.061476558836206716
+      hold: 0.9216292127385689
+      hike: 0.016894228425224353
+  metadata:
+    n_train: 121
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.9299999999999997
+      fed_boc_2yr_spread: 0.3199999999999994
+      rate_momentum: 0.0
+      cpi_median_gap: 1.7999999999999998
+      cpi_trim_gap: 1.7000000000000002
+      unemployment_momentum: 0.6000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:59.199474'
+  as_of: '2024-03-13T00:00:00'
+  forecast_date: '2024-04-10T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.05507902709748609
+      hold: 0.924082676415509
+      hike: 0.020838296487004995
+  metadata:
+    n_train: 122
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.8899999999999997
+      fed_boc_2yr_spread: 0.46999999999999975
+      rate_momentum: 0.0
+      cpi_median_gap: 1.7000000000000002
+      cpi_trim_gap: 1.4
+      unemployment_momentum: 0.7000000000000002
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:37:59.611636'
+  as_of: '2024-05-08T00:00:00'
+  forecast_date: '2024-06-05T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.040676877517868394
+      hold: 0.9428160263850338
+      hike: 0.0165070960970978
+  metadata:
+    n_train: 123
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.8499999999999996
+      fed_boc_2yr_spread: 0.6699999999999999
+      rate_momentum: 0.0
+      cpi_median_gap: 1.2999999999999998
+      cpi_trim_gap: 1.2000000000000002
+      unemployment_momentum: 1.1000000000000005
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:38:00.023308'
+  as_of: '2024-06-26T00:00:00'
+  forecast_date: '2024-07-24T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.21450262885513188
+      hold: 0.7759791597742934
+      hike: 0.009518211370574589
+  metadata:
+    n_train: 124
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.7799999999999998
+      fed_boc_2yr_spread: 0.6800000000000002
+      rate_momentum: -0.25
+      cpi_median_gap: 1.2000000000000002
+      cpi_trim_gap: 1.1
+      unemployment_momentum: 1.0999999999999996
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:38:00.444469'
+  as_of: '2024-08-07T00:00:00'
+  forecast_date: '2024-09-04T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.625127937571215
+      hold: 0.3739655627241204
+      hike: 0.0009064997046646837
+  metadata:
+    n_train: 125
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -1.23
+      fed_boc_2yr_spread: 0.7200000000000002
+      rate_momentum: -0.5
+      cpi_median_gap: 1.1
+      cpi_trim_gap: 1.0
+      unemployment_momentum: 1.0
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:38:00.863649'
+  as_of: '2024-09-25T00:00:00'
+  forecast_date: '2024-10-23T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.6883042713001909
+      hold: 0.3113774785550069
+      hike: 0.00031825014480228145
+  metadata:
+    n_train: 126
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -1.35
+      fed_boc_2yr_spread: 0.5900000000000003
+      rate_momentum: -0.5
+      cpi_median_gap: 0.6000000000000001
+      cpi_trim_gap: 0.6000000000000001
+      unemployment_momentum: 1.1999999999999993
+- predictor_id: boc_logistic_macro
+  task_id: boc_rate_direction_next_meeting
+  issued_at: '2026-09-10T07:38:01.288433'
+  as_of: '2024-11-13T00:00:00'
+  forecast_date: '2024-12-11T00:00:00'
+  payload:
+    probabilities:
+      cut: 0.79390145544449
+      hold: 0.20464784654232576
+      hike: 0.0014506980131841812
+  metadata:
+    n_train: 127
+    model: multinomial_logistic_regression
+    features:
+      yield_spread: -0.5800000000000001
+      fed_boc_2yr_spread: 1.17
+      rate_momentum: -0.75
+      cpi_median_gap: 0.5
+      cpi_trim_gap: 0.6000000000000001
+      unemployment_momentum: 0.8999999999999995
+scores:
+- 0.140625
+- 0.1111111111111111
+- 0.09
+- 1.0743801652892562
+- 0.9027777777777777
+- 0.7692307692307695
+- 0.09183673469387756
+- 0.07999999999999999
+- 0.18404179264128115
+- 0.11068360463382225
+- 0.05688979491312681
+- 0.07057702319789257
+- 0.01955876920303156
+- 0.00813577345583798
+- 0.01548264715476583
+- 0.004064549846416892
+- 0.0007505263101539431
+- 0.0005709631510657164
+- 0.00236155114386903
+- 0.001424162953110853
+- 0.0004818782288716779
+- 0.00033480090766085257
+- 0.00017084624816453444
+- 0.00015413962123662575
+- 0.00029571788356755834
+- 0.0008418488511458645
+- 9.356197968986456e-05
+- 3.802615964818917e-05
+- 0.0003205482205535781
+- 0.0001642760086059203
+- 0.0002510074773365506
+- 9.979247990301705e-05
+- 9.655737843472441e-05
+- 1.0186688481539465e-05
+- 1.478302814232451e-05
+- 2.967438879322745e-05
+- 2.3677214504296877e-05
+- 4.684618903568781e-05
+- 4.3113839817590516e-05
+- 2.7140937676245075e-05
+- 0.9934526645769212
+- 0.354849571733019
+- 0.05388756670485829
+- 0.0022383149669902335
+- 0.9408978449907272
+- 0.08044133461054756
+- 0.05588157378483794
+- 0.013683926159251252
+- 0.0577171342807132
+- 0.02473290099232312
+- 0.022350825172253196
+- 0.01169840099542769
+- 0.018911935135606846
+- 0.020819572348065415
+- 0.014750837461345336
+- 0.010104953357918727
+- 0.01701499893851353
+- 0.004594570178036779
+- 0.006859200389529935
+- 0.0017962670090260835
+- 0.9743162633231349
+- 0.25030780720235535
+- 0.4729166086997058
+- 0.08514103252460441
+- 0.4942018965775846
+- 0.28077937647614776
+- 0.07601058047049701
+- 0.056976201524464476
+- 0.7602459652981538
+- 0.04443229802549795
+- 0.7527527073155434
+- 0.1594906174368676
+- 0.01466618456060873
+- 0.004854286170596718
+- 0.0068166575107070975
+- 0.005803485646960361
+- 0.004246712368554053
+- 0.0034774488233829236
+- 0.0018234659396199802
+- 0.0014728482298153704
+- 0.0010782458507340657
+- 0.9227546767516307
+- 0.640418219688691
+- 0.02590591699236301
+- 1.0906207648158222e-05
+- 1.197545091123599e-05
+- 2.5974516676031277e-05
+- 0.00025873200295986897
+- 0.0008691245079251919
+- 0.0003356247927631682
+- 0.0013142119476653637
+- 0.42179219193619594
+- 0.10679579557832694
+- 0.061650012185216374
+- 0.037148504293050874
+- 0.009165165366596315
+- 0.005522944366706767
+- 0.9930709516453121
+- 0.024530742371035676
+- 0.00011509528736892909
+- 4.479794375527613e-06
+- 0.015403198328086301
+- 0.002325158015073306
+- 0.08957219159781703
+- 0.7608937331251968
+- 0.10506096535463838
+- 0.03433394739656229
+- 1.01385773061898
+- 0.709208464087067
+- 0.029572273324311137
+- 0.05679077389713275
+- 0.008855550646199691
+- 0.005406196301618961
+- 0.004064782240425245
+- 0.003467933826485926
+- 0.9205733375504256
+- 0.6170967164231935
+- 0.14052988493132545
+- 0.09715432857285967
+- 0.04247871459262501
+metric: rps
+mean_score: 0.1567073612559444
+ran_at: '2026-09-10T07:38:01.290505'
+skipped_origins: 0

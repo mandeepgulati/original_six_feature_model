@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2018-12-05_en",
+    "publication_date": "2018-12-05",
+    "title": "Bank of Canada rate announcement 2018-12-05",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3574,
+  "est_tokens": 894,
+  "extracted_at": "2026-09-10T07:40:02.915059",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2018-12-05_en.md"
+}

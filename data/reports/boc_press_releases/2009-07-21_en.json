@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2009-07-21_en",
+    "publication_date": "2009-07-21",
+    "title": "Bank of Canada rate announcement 2009-07-21",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3250,
+  "est_tokens": 813,
+  "extracted_at": "2026-09-10T07:39:31.359408",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2009-07-21_en.md"
+}

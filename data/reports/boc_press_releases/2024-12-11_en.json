@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2024-12-11_en",
+    "publication_date": "2024-12-11",
+    "title": "Bank of Canada rate announcement 2024-12-11",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3978,
+  "est_tokens": 995,
+  "extracted_at": "2026-09-10T07:40:22.833360",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2024-12-11_en.md"
+}

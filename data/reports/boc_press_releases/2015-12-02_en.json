@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2015-12-02_en",
+    "publication_date": "2015-12-02",
+    "title": "Bank of Canada rate announcement 2015-12-02",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 2912,
+  "est_tokens": 728,
+  "extracted_at": "2026-09-10T07:39:53.904459",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2015-12-02_en.md"
+}

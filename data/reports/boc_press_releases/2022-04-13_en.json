@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2022-04-13_en",
+    "publication_date": "2022-04-13",
+    "title": "Bank of Canada rate announcement 2022-04-13",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 4578,
+  "est_tokens": 1145,
+  "extracted_at": "2026-09-10T07:40:13.716093",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2022-04-13_en.md"
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2022-06-01_en",
+    "publication_date": "2022-06-01",
+    "title": "Bank of Canada rate announcement 2022-06-01",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3187,
+  "est_tokens": 797,
+  "extracted_at": "2026-09-10T07:40:14.079162",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2022-06-01_en.md"
+}

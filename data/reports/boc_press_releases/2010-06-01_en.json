@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2010-06-01_en",
+    "publication_date": "2010-06-01",
+    "title": "Bank of Canada rate announcement 2010-06-01",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 2933,
+  "est_tokens": 734,
+  "extracted_at": "2026-09-10T07:39:34.496042",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2010-06-01_en.md"
+}

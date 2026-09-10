@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "boc_press_releases",
+    "doc_id": "2012-07-17_en",
+    "publication_date": "2012-07-17",
+    "title": "Bank of Canada rate announcement 2012-07-17",
+    "lang": "en"
+  },
+  "page_count": 1,
+  "n_chars": 3931,
+  "est_tokens": 983,
+  "extracted_at": "2026-09-10T07:39:41.821708",
+  "pdf_path": null,
+  "text_path": "data/reports/boc_press_releases/2012-07-17_en.md"
+}
