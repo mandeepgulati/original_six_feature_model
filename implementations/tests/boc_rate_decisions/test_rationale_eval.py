@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import Any
 
 import pandas as pd
+import pytest
 from aieng.forecasting.documents.models import DocumentMeta, ExtractedDocument
 from aieng.forecasting.evaluation.backtest import BacktestResult, BacktestSpec
 from aieng.forecasting.evaluation.prediction import CategoricalForecast, Prediction
@@ -13,9 +14,41 @@ from aieng.forecasting.evaluation.task import ForecastingTask, TaskCategory
 from boc_rate_decisions.press_releases import PressReleaseStore
 from boc_rate_decisions.rationale_eval import (
     AlignmentVerdict,
+    ensemble_probability_variants,
     evaluate_result_alignment,
     evaluate_trace_alignment,
 )
+
+
+def test_ensemble_variants_blend_and_gate() -> None:
+    agent = {"cut": 0.8, "hold": 0.1, "hike": 0.1}
+    logistic = {"cut": 0.2, "hold": 0.7, "hike": 0.1}
+
+    variants = ensemble_probability_variants(agent, logistic, threshold=0.25)
+
+    assert variants["ensemble_50_50"] == pytest.approx({"cut": 0.5, "hold": 0.4, "hike": 0.1})
+    assert variants["gated_ensemble"] == logistic
+
+
+def test_ensemble_variants_keep_blend_when_close() -> None:
+    agent = {"cut": 0.3, "hold": 0.6, "hike": 0.1}
+    logistic = {"cut": 0.2, "hold": 0.7, "hike": 0.1}
+
+    variants = ensemble_probability_variants(agent, logistic, threshold=0.25)
+
+    assert variants["gated_ensemble"] == variants["ensemble_50_50"]
+
+
+@pytest.mark.parametrize(
+    "agent, logistic",
+    [
+        ({"cut": 1.0, "hold": 0.0}, {"cut": 0.0, "hold": 1.0, "hike": 0.0}),
+        ({"cut": 0.2, "hold": 0.2, "hike": 0.2}, {"cut": 0.2, "hold": 0.7, "hike": 0.1}),
+    ],
+)
+def test_ensemble_variants_reject_invalid_distributions(agent: dict[str, float], logistic: dict[str, float]) -> None:
+    with pytest.raises(ValueError):
+        ensemble_probability_variants(agent, logistic)
 
 
 _CATEGORIES = [

@@ -31,6 +31,7 @@ from __future__ import annotations
 import os
 from typing import Any, Callable, Sequence
 
+import numpy as np
 import pandas as pd
 from aieng.forecasting.evaluation.backtest import BacktestResult
 from aieng.forecasting.evaluation.eval import EvalResult
@@ -69,6 +70,67 @@ class AlignmentVerdict(BaseModel):
     alignment_score: float = Field(ge=0.0, le=1.0)
     key_signal_overlap: list[str] = Field(default_factory=list)
     justification: str = ""
+
+
+_ENSEMBLE_CATEGORIES = ("cut", "hold", "hike")
+
+
+def ensemble_probability_variants(
+    agent_probabilities: dict[str, float],
+    logistic_probabilities: dict[str, float],
+    *,
+    threshold: float = 0.25,
+) -> dict[str, dict[str, float]]:
+    """Return agent, blended, and divergence-gated probability variants.
+
+    The logistic distribution is the deterministic production control. The
+    gated variant falls back to it when the agent's total-variation distance
+    exceeds ``threshold``; otherwise it uses the 50/50 blend. This is a
+    post-processing experiment and does not change either predictor.
+
+    Parameters
+    ----------
+    agent_probabilities, logistic_probabilities : dict[str, float]
+        Complete ``cut``/``hold``/``hike`` probability distributions.
+    threshold : float
+        Maximum allowed total-variation distance before logistic fallback.
+
+    Returns
+    -------
+    dict[str, dict[str, float]]
+        ``agent_only``, ``ensemble_50_50``, and ``gated_ensemble`` variants.
+
+    Raises
+    ------
+    ValueError
+        If a distribution is incomplete, invalid, or the threshold is outside
+        ``[0, 1]``.
+    """
+    if not 0.0 <= threshold <= 1.0:
+        raise ValueError(f"threshold must be in [0, 1], got {threshold}.")
+
+    def _validated(values: dict[str, float], name: str) -> np.ndarray:
+        if set(values) != set(_ENSEMBLE_CATEGORIES):
+            raise ValueError(f"{name} must contain exactly {_ENSEMBLE_CATEGORIES}.")
+        array = np.asarray([values[label] for label in _ENSEMBLE_CATEGORIES], dtype=float)
+        if not np.all(np.isfinite(array)) or np.any(array < 0.0) or not np.isclose(array.sum(), 1.0):
+            raise ValueError(f"{name} must be finite, non-negative, and sum to 1.")
+        return array
+
+    agent = _validated(agent_probabilities, "agent_probabilities")
+    logistic = _validated(logistic_probabilities, "logistic_probabilities")
+    blended = 0.5 * (agent + logistic)
+    divergence = float(np.abs(agent - logistic).sum() / 2.0)
+    gated = logistic if divergence > threshold else blended
+
+    def _as_dict(values: np.ndarray) -> dict[str, float]:
+        return dict(zip(_ENSEMBLE_CATEGORIES, (float(value) for value in values), strict=True))
+
+    return {
+        "agent_only": _as_dict(agent),
+        "ensemble_50_50": _as_dict(blended),
+        "gated_ensemble": _as_dict(gated),
+    }
 
 
 _ALIGNMENT_JSON_SCHEMA: dict[str, Any] = {
@@ -445,6 +507,7 @@ def evaluate_result_alignment(
 
 __all__ = [
     "AlignmentVerdict",
+    "ensemble_probability_variants",
     "evaluate_result_alignment",
     "evaluate_trace_alignment",
     "judge_rationale_alignment",
